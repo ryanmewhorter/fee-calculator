@@ -1,11 +1,6 @@
-import {Fee} from '../models/fee';
 import {FeeSetting} from '../models/fee-setting';
 
 export const FEE_SETTINGS: FeeSetting[] = [
-  {
-    name: 'Custom',
-    fees: [{flat: 0, percent: 10, max: 100}]
-  } as FeeSetting,
   {
     name: 'PayPal',
     fees: [{flat: 0.3, percent: 2.9}]

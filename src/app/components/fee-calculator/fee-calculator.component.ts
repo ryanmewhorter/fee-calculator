@@ -3,6 +3,7 @@ import {FeeSetting} from '../../shared/models/fee-setting';
 import Utils from '../../shared/utils/utils';
 import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import {FEE_SETTINGS} from '../../shared/utils/constants';
+import {CurrencyValidator} from '../../shared/validators/currency/currency.validator';
 
 @Component({
   selector: 'app-fee-calculator',
@@ -41,12 +42,20 @@ export class FeeCalculatorComponent implements OnInit {
   createForm(): FormGroup {
     return this.fb.group({
       feeSetting: [null, Validators.required],
-      buyerPays: ['0', Validators.pattern('^[0-9]*\\.?[0-9]{0,2}$')],
-      sellerReceives: ['0', Validators.pattern('^[0-9]*\\.?[0-9]{0,2}$')]
+      buyerPays: ['0', CurrencyValidator.isNumber],
+      sellerReceives: ['0', CurrencyValidator.isNumber]
+      // buyerPays: ['0', Validators.pattern('^[0-9]*\.?[0-9]{0,2}$')],
+      // sellerReceives: ['0', Validators.pattern('^[0-9]*\.?[0-9]{0,2}$')]
     });
   }
 
   listenForChanges(form: FormGroup): void {
+    // form.statusChanges.subscribe(status => {
+    //   if (status === 'INVALID') {
+    //     console.error('Form invalid.');
+    //     console.log(form);
+    //   }
+    // });
     form.get('feeSetting').valueChanges.subscribe((feeSetting: FeeSetting) => {
       form.get('buyerPays').setValue(FeeCalculatorComponent.calculateBuyerPays(0, feeSetting).toString());
       form.get('sellerReceives').setValue('0');

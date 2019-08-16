@@ -1,13 +1,13 @@
 <div class="p-4">
   <h1>Fee Calculator</h1>
-  <h5 class="text-secondary">for PayPal, Depop, and eBay.</h5>
+  <h5 class="text-secondary">for PayPal, Depop, eBay, and Craigslist.</h5>
   <div class="p-2">
     <div *ngIf="!form.valid && form.dirty" class="errors text-danger">
       <h6>Please fix the following errors:</h6>
       <ul>
         <li *ngIf="form.get('feeSetting').hasError('required')">Fee configuration is required.</li>
-        <li *ngIf="form.get('buyerPays').hasError('pattern')">Invalid amount for buyer pays.</li>
-        <li *ngIf="form.get('sellerReceives').hasError('pattern')">Invalid amount for seller receives.</li>
+        <li *ngIf="form.get('buyerPays').errors">Invalid amount for buyer pays.</li>
+        <li *ngIf="form.get('sellerReceives').errors">Invalid amount for seller receives.</li>
       </ul>
     </div>
     <form class="d-flex flex-column flex-md-row flex-md-wrap justify-content-between" [formGroup]="form">
