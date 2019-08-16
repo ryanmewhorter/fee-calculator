@@ -6,7 +6,7 @@ import {IConfig, NgxMaskModule} from 'ngx-mask';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FeeCalculatorComponent } from './components/fee-calculator/fee-calculator.component';
 
-export let options: Partial<IConfig> | (() => Partial<IConfig>);
+// export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ export let options: Partial<IConfig> | (() => Partial<IConfig>);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxMaskModule.forRoot(options),
+    // NgxMaskModule.forRoot(options),
     ReactiveFormsModule
   ],
   providers: [],
