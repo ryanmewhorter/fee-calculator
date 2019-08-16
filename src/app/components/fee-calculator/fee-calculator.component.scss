@@ -1,0 +1,14 @@
+@import "~src/styles";
+//
+form.ng-dirty .ng-invalid.form-control {
+  border-color: $red;
+  &:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem #{$red}40;
+    -moz-box-shadow: 0 0 0 0.2rem #{$red}40;
+    box-shadow: 0 0 0 0.2rem #{$red}40;
+  }
+}
+
+:host>div {
+  height: 100%;
+}

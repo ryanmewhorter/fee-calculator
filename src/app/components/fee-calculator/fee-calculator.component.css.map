@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,uDAAc;EACZ,MAAM,EAAE,IAAI",
+"sources": ["fee-calculator.component.scss"],
+"names": [],
+"file": "fee-calculator.component.css"
+}
