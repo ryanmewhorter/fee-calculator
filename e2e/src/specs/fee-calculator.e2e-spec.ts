@@ -1,16 +1,19 @@
-import { AppPage } from './app.po';
+import { FeeCalculatorPage } from '../pages/fee-calculator/fee-calculator.po';
+import ProtractorApiWrapper from '../protractor-api-wrapper';
 import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
-  let page: AppPage;
+describe('fee calculator e2e tests', () => {
+  let page: FeeCalculatorPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new FeeCalculatorPage();
   });
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to fee-calculator!');
+    ProtractorApiWrapper.getCurrentUrl().then(url => {
+      console.log('url = ', url);
+    });
   });
 
   afterEach(async () => {

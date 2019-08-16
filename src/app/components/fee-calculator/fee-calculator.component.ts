@@ -44,18 +44,10 @@ export class FeeCalculatorComponent implements OnInit {
       feeSetting: [null, Validators.required],
       buyerPays: ['0', CurrencyValidator.isNumber],
       sellerReceives: ['0', CurrencyValidator.isNumber]
-      // buyerPays: ['0', Validators.pattern('^[0-9]*\.?[0-9]{0,2}$')],
-      // sellerReceives: ['0', Validators.pattern('^[0-9]*\.?[0-9]{0,2}$')]
     });
   }
 
   listenForChanges(form: FormGroup): void {
-    // form.statusChanges.subscribe(status => {
-    //   if (status === 'INVALID') {
-    //     console.error('Form invalid.');
-    //     console.log(form);
-    //   }
-    // });
     form.get('feeSetting').valueChanges.subscribe((feeSetting: FeeSetting) => {
       form.get('buyerPays').setValue(FeeCalculatorComponent.calculateBuyerPays(0, feeSetting).toString());
       form.get('sellerReceives').setValue('0');
