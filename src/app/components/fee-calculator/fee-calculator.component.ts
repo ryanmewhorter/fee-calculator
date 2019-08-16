@@ -47,10 +47,6 @@ export class FeeCalculatorComponent implements OnInit {
   }
 
   listenForChanges(form: FormGroup): void {
-    form.valueChanges.subscribe((formValue: any) => {
-      console.log('form = ', form);
-      console.log('form change: ', formValue);
-    });
     form.get('feeSetting').valueChanges.subscribe((feeSetting: FeeSetting) => {
       form.get('buyerPays').setValue(FeeCalculatorComponent.calculateBuyerPays(0, feeSetting).toString());
       form.get('sellerReceives').setValue('0');
