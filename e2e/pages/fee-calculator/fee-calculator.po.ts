@@ -1,20 +1,12 @@
 import {browser, by, element, ElementFinder} from 'protractor';
-import {ProtractorApiWrapper} from '../../protractor-api-wrapper';
-
-const pageData = require('./fee-calculator.po.json');
+// import ProtractorApiWrapper from '../../protractor-api-wrapper';
 
 export default class FeeCalculatorPage {
 
-  static getFeeSetting(): ElementFinder {
-    return ProtractorApiWrapper.getElementById(pageData.feeSettingId);
-  }
+  url = 'https://ryanmewhorter.github.io/fee-calculator/calc';
 
-  static getBuyerPays(): ElementFinder {
-    return ProtractorApiWrapper.getElementById(pageData.buyerPaysId);
-  }
-
-  static getSellerReceives(): ElementFinder {
-    return ProtractorApiWrapper.getElementById(pageData.sellerReceivesId);
+  async navigateTo(): Promise<any> {
+    browser.get(this.url);
   }
 
 }
