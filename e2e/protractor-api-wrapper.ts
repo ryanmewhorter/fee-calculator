@@ -1,7 +1,7 @@
 import {browser, by, element, ElementFinder} from 'protractor';
 
 
-export class ProtractorApiWrapper {
+export default class ProtractorApiWrapper {
 
   public static async navigate(destination: string, timeout?: number): Promise<any> {
     return browser.get(destination, timeout);
