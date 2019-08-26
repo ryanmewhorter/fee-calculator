@@ -1,0 +1,29 @@
+{
+  "name": "lpea_mcl_banner_notification_ui",
+  "version": "1.0.0",
+  "description": "E2E tests for the MCL Banner Notification project",
+  "scripts": {
+    "tsc": "tsc",
+    "test:dev": "npm run tsc && protractor out-tsc/protractor.conf.js",
+    "driver": "./node_modules/.bin/webdriver-manager",
+    "driver:update": "webdriver-manager update",
+    "predriver:start": "npm run driver:update",
+    "driver:start": "webdriver-manager start",
+    "driver:start:i": "npm install && npm run driver:start"
+  },
+  "devDependencies": {
+    "@types/node": "~8.9.4",
+    "@types/jasmine": "~3.3.8",
+    "@types/jasminewd2": "~2.0.3",
+    "jasmine": "^2.4.1",
+    "jasmine-tfs-reporter": "^1.0.2",
+    "jasmine-spec-reporter": "^4.2.1",
+    "jasmine-trx-reporter": "2.2.2",
+    "ts-node": "~7.0.0",
+    "typescript": "~3.4.3",
+    "protractor": "^5.4.0",
+    "protractor-jasmine2-screenshot-reporter": "^0.5.0",
+    "copyfiles": "1.2.0"
+  },
+  "license": "MIT"
+}
