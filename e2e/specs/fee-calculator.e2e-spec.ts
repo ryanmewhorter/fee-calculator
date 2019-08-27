@@ -1,5 +1,5 @@
 import ProtractorApiWrapper from '../protractor-api-wrapper';
-import FeeCalculatorPage from '../pages/fee-calculator/fee-calculator.po';
+import FeeCalculatorPage from '../pages/fee-calculator.po';
 import { browser, logging } from 'protractor';
 
 console.log('FeeCalculatorPage =', FeeCalculatorPage);

@@ -4,10 +4,12 @@
 /dist
 /tmp
 /out-tsc
+/e2e/out-tsc
 # Only exists if Bazel was run
 /bazel-out
 
 # dependencies
+/e2e/node_modules
 /node_modules
 
 # profiling files

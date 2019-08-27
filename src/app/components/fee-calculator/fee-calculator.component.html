@@ -12,8 +12,8 @@
     </div>
     <form class="d-flex flex-column flex-md-row flex-md-wrap justify-content-between" [formGroup]="form">
       <div class="form-group w-100">
-        <label for="fee-settings">Fee settings</label>
-        <select id="fee-settings" class="form-control form-control-lg"
+        <label for="fee_settings">Fee settings</label>
+        <select id="fee_settings" class="form-control form-control-lg"
                 formControlName="feeSetting">
           <option [ngValue]="null" disabled>Select a fee setting</option>
           <option *ngFor="let setting of feeSettings"
@@ -24,7 +24,7 @@
         </select>
       </div>
       <div *ngIf="form.get('feeSetting').value" class="w-100 fee-description">
-        Current fee settings: <span class="badge badge-light">{{form.get('feeSetting').value.name}}</span>
+        Current fee settings: <span id="current_fee_settings" class="badge badge-light">{{form.get('feeSetting').value.name}}</span>
         <p *ngIf="form.get('feeSetting').value.description">
           {{form.get('feeSetting').value.description}}
         </p>
@@ -37,10 +37,10 @@
         </ol>
       </div>
       <div class="form-group flex-md-grow-0 flex-md-shrink-1 flex-grow-1">
-        <label for="buyer-pays">Buyer pays</label>
+        <label for="buyer_pays">Buyer pays</label>
         <div class="input-group">
           <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-          <input id="buyer-pays" class="form-control form-control-lg" type="number" step="0.01" min="0" formControlName="buyerPays">
+          <input id="buyer_pays" class="form-control form-control-lg" type="number" step="0.01" min="0" formControlName="buyerPays">
         </div>
       </div>
       <div class="text-danger font-weight-bold flex-grow-1 mt-auto mb-3 my-md-auto flex-md-grow-0 text-md-center">
@@ -50,10 +50,10 @@
       </div>
       <!--<i class="fas fa-sync-alt flex-md-grow-1 flex-grow-0"></i>-->
       <div class="form-group flex-md-grow-0 flex-md-shrink-1 flex-grow-1">
-        <label for="seller-receives">Seller receives</label>
+        <label for="seller_receives">Seller receives</label>
         <div class="input-group">
           <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-          <input id="seller-receives" class="form-control form-control-lg" type="number" step="0.01" min="0" formControlName="sellerReceives">
+          <input id="seller_receives" class="form-control form-control-lg" type="number" step="0.01" min="0" formControlName="sellerReceives">
         </div>
       </div>
     </form>

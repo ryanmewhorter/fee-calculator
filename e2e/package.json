@@ -4,7 +4,9 @@
   "description": "E2E tests for the MCL Banner Notification project",
   "scripts": {
     "tsc": "tsc",
-    "test:dev": "npm run tsc && protractor out-tsc/protractor.conf.js",
+    "copy:data:files": "copyfiles -f ./pages/data/*.* ./out-tsc/pages/data",
+    "pretest": "npm run tsc && npm run copy:data:files",
+    "test:dev": "npm run pretest && protractor out-tsc/protractor.conf.js",
     "driver": "./node_modules/.bin/webdriver-manager",
     "driver:update": "webdriver-manager update",
     "predriver:start": "npm run driver:update",

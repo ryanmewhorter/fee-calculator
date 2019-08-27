@@ -1,0 +1,6 @@
+{
+  "feeSettingId": "fee_settings",
+  "buyerPaysId": "buyer_pays",
+  "sellerReceivesId": "seller_receives",
+  "currentFeeSettingsId": "current_fee_settings"
+}

@@ -1,7 +1,7 @@
 import {browser, by, element, ElementFinder} from 'protractor';
-import {ProtractorApiWrapper} from '../../protractor-api-wrapper';
+import ProtractorApiWrapper from '../protractor-api-wrapper';
 
-const pageData = require('./fee-calculator.po.json');
+const pageData = require('./data/fee-calculator.po.json');
 
 export default class FeeCalculatorPage {
 
