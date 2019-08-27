@@ -4,6 +4,7 @@ import Utils from '../../shared/utils/utils';
 import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import {FEE_SETTINGS} from '../../shared/utils/constants';
 import {CurrencyValidator} from '../../shared/validators/currency/currency.validator';
+import {FeeSettingsService} from '../../services/fee-settings/fee-settings.service';
 
 @Component({
   selector: 'app-fee-calculator',
@@ -12,11 +13,12 @@ import {CurrencyValidator} from '../../shared/validators/currency/currency.valid
 })
 export class FeeCalculatorComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private feeSettingsService: FeeSettingsService) { }
 
   form: FormGroup;
 
-  public feeSettings: FeeSetting[] = [...FEE_SETTINGS];
+  public feeSettings: FeeSetting[] = []; // [...FEE_SETTINGS];
 
   static calculateBuyerPays(sellerReceives: number, setting: FeeSetting): number {
     let buyerPays = sellerReceives;
@@ -37,6 +39,16 @@ export class FeeCalculatorComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.createForm();
     this.listenForChanges(this.form);
+    this.feeSettingsService.fetch()
+      .then((response: ButterResponse) => {
+        console.log('Response:', response);
+        if (response.data && response.data.data && response.data.data.feesettings) {
+          this.feeSettings = response.data.data.feesettings.map(fs => this.feeSettingsService.translateToModel(fs));
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }
 
   createForm(): FormGroup {
