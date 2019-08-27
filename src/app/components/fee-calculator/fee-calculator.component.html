@@ -18,9 +18,7 @@
           <option [ngValue]="null" disabled>Select a fee setting</option>
           <option *ngFor="let setting of feeSettings"
                   [ngValue]="setting"
-                  [selected]="form.get('feeSetting').value === setting">
-            {{setting.name}}
-          </option>
+                  [selected]="form.get('feeSetting').value === setting">{{setting.name}}</option>
         </select>
       </div>
       <div *ngIf="form.get('feeSetting').value" class="w-100 fee-description">
@@ -44,7 +42,7 @@
         </div>
       </div>
       <div class="text-danger font-weight-bold flex-grow-1 mt-auto mb-3 my-md-auto flex-md-grow-0 text-md-center">
-        <p *ngIf="form.get('buyerPays').value && form.get('sellerReceives').value" class="m-0">
+        <p id="fee_amount" *ngIf="form.get('buyerPays').value && form.get('sellerReceives').value" class="m-0">
           {{form.get('sellerReceives').value - form.get('buyerPays').value | currency}}
         </p>
       </div>
