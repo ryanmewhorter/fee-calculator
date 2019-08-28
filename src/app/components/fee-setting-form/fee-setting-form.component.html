@@ -1,3 +1,25 @@
-<p>
-  fee-setting-form works!
-</p>
+<div class="p-4">
+  <h1>Create a Fee Setting</h1>
+  <form [formGroup]="form">
+    <div class="form-group">
+      <label class="w-100">
+        Name:
+        <input class="form-control form-control-lg" type="text" formControlName="name">
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="w-100">
+        Description:
+        <textarea class="form-control form-control-lg" formControlName="description" rows="4"></textarea>
+      </label>
+    </div>
+    <div class="form-group" formArrayName="fees">
+      <ng-container *ngFor="let fee of form.get('fees').controls; let i = index">
+        <app-fee-form [group]="fee" [index]="i" (remove)="removeFeeForm(i)"></app-fee-form>
+      </ng-container>
+      <button type="button" class="btn btn-outline-secondary" (click)="addFeeForm()"><i class="fas fa-plus"></i><span> Add Fee</span></button>
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg mr-3" (click)="submit()">Create Fee Setting</button>
+    <button type="button" class="btn btn-secondary btn-lg" (click)="cancel()">Cancel</button>
+  </form>
+</div>

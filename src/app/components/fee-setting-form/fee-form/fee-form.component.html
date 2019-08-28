@@ -1,0 +1,21 @@
+<div [formGroup]="group" class="d-flex flex-row align-items-center">
+  <div class="form-group flex-grow-1 flex-shrink-1">
+    <label class="w-100">
+      Flat:
+      <input class="form-control" step="0.01" type="number" formControlName="flat">
+    </label>
+  </div>
+  <div class="form-group flex-grow-1 flex-shrink-1 ml-3">
+    <label class="w-100">
+      Percent:
+      <input class="form-control" step="0.01" type="number" formControlName="percent">
+    </label>
+  </div>
+  <div class="form-group flex-grow-1 flex-shrink-1 ml-3">
+    <label class="w-100">
+      Max:
+      <input class="form-control" step="0.01" type="number" formControlName="max">
+    </label>
+  </div>
+  <button type="button" class="btn btn-outline-danger ml-3" (click)="removeClicked()"><i class="fas fa-times"></i></button>
+</div>

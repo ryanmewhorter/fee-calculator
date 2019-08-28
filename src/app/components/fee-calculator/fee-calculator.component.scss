@@ -1,5 +1,6 @@
-@import "~src/styles";
-//
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
 form.ng-dirty .ng-invalid.form-control {
   border-color: $red;
   &:focus {

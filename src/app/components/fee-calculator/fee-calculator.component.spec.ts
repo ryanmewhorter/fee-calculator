@@ -25,7 +25,7 @@ describe('FeeCalculatorComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('createForm should return a form', () => {
+  it('createFeeSettingForm should return a form', () => {
     expect(component.createForm()).toBeTruthy();
   });
 });

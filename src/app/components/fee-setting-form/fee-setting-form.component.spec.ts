@@ -22,4 +22,12 @@ describe('FeeSettingFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create fee setting form', () => {
+    expect(component.createFeeSettingForm()).toBeTruthy();
+  });
+
+  it('should create fee form', () => {
+    expect(component.createFeeForm()).toBeTruthy();
+  });
 });
