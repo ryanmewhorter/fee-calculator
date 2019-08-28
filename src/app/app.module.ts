@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import {IConfig, NgxMaskModule} from 'ngx-mask';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FeeCalculatorComponent } from './components/fee-calculator/fee-calculator.component';
+import { FeeSettingFormComponent } from './components/fee-setting-form/fee-setting-form.component';
 
 // export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 @NgModule({
   declarations: [
     AppComponent,
-    FeeCalculatorComponent
+    FeeCalculatorComponent,
+    FeeSettingFormComponent
   ],
   imports: [
     BrowserModule,

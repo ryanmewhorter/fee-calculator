@@ -13,13 +13,21 @@
     <form class="d-flex flex-column flex-md-row flex-md-wrap justify-content-between" [formGroup]="form">
       <div class="form-group w-100">
         <label for="fee_settings">Fee settings</label>
-        <select id="fee_settings" class="form-control form-control-lg"
-                formControlName="feeSetting">
-          <option [ngValue]="null" disabled>Select a fee setting</option>
-          <option *ngFor="let setting of feeSettings"
-                  [ngValue]="setting"
-                  [selected]="form.get('feeSetting').value === setting">{{setting.name}}</option>
-        </select>
+        <div class="d-flex flex-wrap flex-sm-nowrap">
+          <select id="fee_settings" class="form-control form-control-lg"
+                  formControlName="feeSetting">
+            <option [ngValue]="null" disabled>Select a fee setting</option>
+            <option *ngFor="let setting of feeSettings"
+                    [ngValue]="setting"
+                    [selected]="form.get('feeSetting').value === setting">{{setting.name}}</option>
+          </select>
+          <button class="btn btn-light btn-lg flex-sm-grow-1 flex-sm-shrink-0 mt-2 mt-sm-0 ml-sm-3"
+                  routerLink="/create"
+                  type="button">
+            <i class="fas fa-plus-circle text-success"></i>
+            <span> Create</span>
+          </button>
+        </div>
       </div>
       <div *ngIf="form.get('feeSetting').value" class="w-100 fee-description">
         Current fee settings: <span id="current_fee_settings" class="badge badge-light">{{form.get('feeSetting').value.name}}</span>
