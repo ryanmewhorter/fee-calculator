@@ -33,7 +33,7 @@ export let config: Config = {
   },
   seleniumAddress: 'http://localhost:4444/wd/hub',
   params: {
-    baseUrl: 'https://ryanmewhorter.github.io/fee-calculator/calc'
+    baseUrl: 'https://ryanmewhorter.github.io/fee-calculator/'
   },
   framework: 'jasmine',
   jasmineNodeOpts: {

@@ -33,7 +33,7 @@ export let config: Config = {
   },
   seleniumAddress: 'http://localhost:4444/wd/hub',
   params: {
-    baseUrl: 'http://localhost:4200/calc'
+    baseUrl: 'http://localhost:4200/'
   },
   framework: 'jasmine',
   jasmineNodeOpts: {
