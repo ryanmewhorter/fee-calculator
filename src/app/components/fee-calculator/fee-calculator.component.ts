@@ -60,9 +60,22 @@ export class FeeCalculatorComponent implements OnInit {
   }
 
   listenForChanges(form: FormGroup): void {
+    let lastEdited: string = null;
     form.get('feeSetting').valueChanges.subscribe((feeSetting: FeeSetting) => {
-      form.get('buyerPays').setValue(FeeCalculatorComponent.calculateBuyerPays(0, feeSetting).toString());
-      form.get('sellerReceives').setValue('0');
+      console.log('last edited:', lastEdited);
+      if (lastEdited === 'buyerPays') {
+        const buyerPaysValue = form.get('buyerPays').value;
+        console.log('buyerPaysValue: ', buyerPaysValue);
+        form.get('sellerReceives').setValue(
+          FeeCalculatorComponent.calculateSellerReceives(buyerPaysValue, feeSetting), {emitEvent: false}
+        );
+      } else if (lastEdited === 'sellerReceives') {
+        const sellerReceivesValue = form.get('sellerReceives').value;
+        console.log('sellerReceivesValue: ', sellerReceivesValue);
+        form.get('buyerPays').setValue(
+          FeeCalculatorComponent.calculateBuyerPays(sellerReceivesValue, feeSetting), {emitEvent: false}
+        );
+      }
     });
     form.get('buyerPays').valueChanges.subscribe((buyerPays: string) => {
       const feeSetting = form.get('feeSetting').value;
@@ -72,6 +85,7 @@ export class FeeCalculatorComponent implements OnInit {
           {emitEvent: false}
         );
       }
+      lastEdited = 'buyerPays';
     });
     form.get('sellerReceives').valueChanges.subscribe((sellerReceives: string) => {
       const feeSetting = form.get('feeSetting').value;
@@ -81,6 +95,7 @@ export class FeeCalculatorComponent implements OnInit {
           {emitEvent: false}
         );
       }
+      lastEdited = 'sellerReceives';
     });
   }
 

@@ -45,6 +45,35 @@ describe('fee calculator e2e tests', () => {
     });
   });
 
+  fdescribe('last modified input value should remain the same when fee settings change', () => {
+
+    const testValue = '22';
+
+    const expectInputToRemainTheSameForEveryFeeSetting = (input: ElementFinder) => {
+      ProtractorApiWrapper.navigate(browser.params.baseUrl).then(() => {
+        input.clear().then(() => {
+          input.sendKeys(testValue);
+          FeeCalculatorPage.getEnabledFeeSettingOptions().then((options: ElementFinder[]) => {
+            for (const option of options) {
+              option.click().then(() => {
+                expect(input.getAttribute('value')).toEqual(testValue);
+              });
+            }
+          });
+        });
+      });
+    };
+
+    it('buyer pays should keep its value when fee settings change', () => {
+      expectInputToRemainTheSameForEveryFeeSetting(FeeCalculatorPage.getBuyerPays());
+    });
+
+    it('seller receives should keep its value when fee settings change', () => {
+      expectInputToRemainTheSameForEveryFeeSetting(FeeCalculatorPage.getSellerReceives());
+    });
+
+  });
+
   describe('inputs should update each other correctly when their value changes', () => {
 
     it('buyer pays should update seller receives correctly for every fee setting', () => {
